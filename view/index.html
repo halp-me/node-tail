@@ -22,7 +22,7 @@
 		<pre id="log" class="log"></pre>
 		<button id="clear-log">clear</button>
 		<script>
-			var socket = io.connect('http://localhost:{{port}}');
+			var socket = io.connect('{{host}}:{{port}}');
 
 			var el = document.getElementById('log');
 			var bt = document.getElementById('clear-log');

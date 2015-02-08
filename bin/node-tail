@@ -6,12 +6,14 @@ var program = require('commander');
 var options = {};
 
 program
-  .usage('[options] file...')
-  .option('-p, --port <port>', 'custom port');
+  .usage('[options] file')
+  .option('-p, --port <port>', 'custom port')
+  .option('-h, --host <host>', 'custom host');
 
 program.parse(process.argv);
 
 nodetail.run({
   port: program.port,
+  host: program.host,
   file: program.args[0]
 });

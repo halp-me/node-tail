@@ -1,5 +1,6 @@
 var defaults = {
-  port: 4000
+  port: 4000,
+  host: 'http://localhost',
 };
 
 exports.run = function(options) {
@@ -21,6 +22,7 @@ exports.run = function(options) {
       }
 
       data = data.toString().replace(/{{port}}/g, options.port);
+      data = data.replace(/{{host}}/g, options.host);
 
       res.writeHead(200);
       res.end(data);
@@ -30,7 +32,7 @@ exports.run = function(options) {
   var io = require('socket.io').listen(app),
     fs = require('fs');
 
-  io.set('log level', 1);
+  //io.set('log level', 1);
 
   io.sockets.on('connection', function (socket) {
 
@@ -42,5 +44,5 @@ exports.run = function(options) {
 
   app.listen(options.port);
 
-  console.log('listen %s on http://localhost:%s/', options.file, options.port);
+  console.log('listen %s on %s:%s/', options.file, options.host, options.port);
 }

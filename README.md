@@ -11,7 +11,7 @@ npm install -g node-tail
 ##usage
 
 ```
-node-tail -p 3000 ~/file.log
+node-tail -h "http://localhost" -p 3000 ~/file.log
 ```
 
 open in browser
