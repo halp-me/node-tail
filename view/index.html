@@ -36,6 +36,20 @@
 				el.scrollTop = el.scrollHeight;
 			});
 		</script>
+    <script>
+      var log = document.getElementById('log');
+      var lastLength = 0;
+      setInterval(function() {
+        if (log.innerHTML.length === lastLength) {
+          return;
+        }
+        log.innerHTML = log.innerHTML.replace(
+            /([^>])\/var\/www\/halp\.me\/website\/api\/((?!node_modules)[^:]+):(\d+)/,
+            '$1<a href="https://github.com/joshterrell805/halp.me/blob/master/website/api/$2#L$3">/var/www/halp.me/website/api/$2:$3</a>');
+        lastLength = log.innerHTML.length;
+      }, 1000);
+    </script>
+
 	</body>
 
 </html>
